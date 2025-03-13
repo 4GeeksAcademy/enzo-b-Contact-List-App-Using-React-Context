@@ -1,25 +1,46 @@
 import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import rigoImage from "../../img/rigo-baby.jpg"; // Placeholder image
+import { FaEdit, FaTrash } from "react-icons/fa"; // Install react-icons if needed
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Card = ({id, name, phone, email, address}) => {
+
+const Card = ({ id, name, phone, email, address, onDelete, onEdit }) => {
     return (
-        <div className="d-flex justify-content-center">
-            <div className="card mb-3" style={{maxWidth: "540px"}}>
-                <div className="row g-0">
-                    <div className="col-md-4 p-2">
-                        <img src= {rigoImage} className="img-fluid rounded-start" alt= {name}/>
+        <div className="container">
+            <div className="card mb-3 p-3 shadow-sm" style={{ maxWidth: "720px" }}>
+                <div className="d-flex align-items-center">
+                    {/* Profile Image */}
+                    <img 
+                        src={rigoImage} 
+                        className="rounded-circle me-3" 
+                        alt={name} 
+                        style={{ width: "80px", height: "80px", objectFit: "cover" }}
+                    />
+                    
+                    {/* Contact Details */}
+                    <div className="flex-grow-1">
+                        <h5 className="mb-1">{name}</h5>
+                        <p className="mb-1">
+                            <i className="fas fa-map-marker-alt"></i> {address}
+                        </p>
+                        <p className="mb-1">
+                            <i className="fas fa-phone"></i> {phone}
+                        </p>
+                        <p className="mb-0">
+                            <i className="fas fa-envelope"></i> {email}
+                        </p>
                     </div>
-                    <div className="col-md-8">
-                        <div className="card-body">
-                            <h5 className="card-title">{name}</h5>
-                            <p className="card-text">Email: {email}</p>
-                            <p className="card-text">Address: {address}</p>
-                            <p className="card-text">Phone: {phone}</p>
-                        </div>
+
+                    {/* Action Buttons */}
+                    <div className="d-flex gap-2">
+                        <FaEdit className="text-primary cursor-pointer" style={{ cursor: "pointer" }} onClick={() => onEdit(id)} />
+                        <FaTrash className="text-danger cursor-pointer" style={{ cursor: "pointer" }} onClick={() => onDelete(id)} />
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
-export default Card
+    );
+};
+
+export default Card;

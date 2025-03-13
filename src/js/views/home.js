@@ -16,12 +16,12 @@ export const Home = () => {
 			{store.contacts.map((contact) => (
 				// <p>{contact.name}</p>
 				<Card
-					key={contact.id}
-					name={contact.name}
-					phone={contact.phone}
-					email={contact.email}
-					address={contact.address}
-					id={contact.id}
+					key = {contact.id}
+					name = {contact.name}
+					phone = {contact.phone}
+					email = {contact.email}
+					address = {contact.address}
+					id = {contact.id}
 				/>
 			))}
 
