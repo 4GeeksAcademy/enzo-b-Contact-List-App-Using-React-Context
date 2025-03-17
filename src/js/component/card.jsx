@@ -7,8 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Card = ({ id, name, phone, email, address, onDelete, onEdit }) => {
     return (
-        <div className="container">
-            <div className="card mb-3 p-3 shadow-sm" style={{ maxWidth: "720px" }}>
+        <div className="container my-0">
+            <div className="card p-3 shadow-sm" style={{ maxWidth: "920px" }}>
                 <div className="d-flex align-items-center">
                     {/* Profile Image */}
                     <img 

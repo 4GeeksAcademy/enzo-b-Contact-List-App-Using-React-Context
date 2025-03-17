@@ -25,37 +25,41 @@ export const Demo = () => {
 			"email": email,
 			"address": address,
 		  }
-		let resp = await actions.createContact(newContact)
-		if(resp){
-			navigate("/")
-		} else{
-			alert("Algo salio mal")
-		}
+		await actions.createContact(newContact)
+		navigate("/")
 
+		
 	}
 
 	return (
 		<div className="container">
-			<h1>agregar contacts</h1>
-			<div className="input-group mb-3">
-				<span className="input-group-text" id="basic-addon1">Name</span>
-				<input type="text" value= {name} onChange= {(e) => setName(e.target.value)} className="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1" />
+			<div className="d-flex justify-content-center">
+				<h1 className="">Add a new contact</h1>
 			</div>
-			<div className="input-group mb-3">
-				<span className="input-group-text" id="basic-addon1">Address</span>
-				<input type="text" value= {address} onChange= {(e) => setAddress(e.target.value)} className="form-control" placeholder="Address" aria-label="Username" aria-describedby="basic-addon1" />
+			
+			<div className="mb-3">
+  				<label for="exampleFormControlInput1" className="form-label">Name</label>
+				<input type="text" value= {name} onChange= {(e) => setName(e.target.value)} className="form-control form-control-lg" aria-label="Username" aria-describedby="basic-addon1" />
 			</div>
-			<div className="input-group mb-3">
-				<span className="input-group-text" id="basic-addon1">Phone</span>
-				<input type="text" value= {phone} onChange= {(e) => setPhone(e.target.value)} className="form-control" placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1" />
+
+			<div className=" mb-3">
+			<label for="exampleFormControlInput1" className="form-label">Address</label>
+				<input type="text" value= {address} onChange= {(e) => setAddress(e.target.value)} className="form-control form-control-lg" aria-label="Username" aria-describedby="basic-addon1" />
 			</div>
-			<div className="input-group mb-3">
-				<span className="input-group-text" id="basic-addon1">Email</span>
-				<input type="text" value= {email} onChange= {(e) => setEmail(e.target.value)} className="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" />
+
+			<div className="mb-3">
+				<label for="exampleFormControlInput1" className="form-label">Phone</label>
+				<input type="text" value= {phone} onChange= {(e) => setPhone(e.target.value)} className="form-control form-control-lg" aria-label="Username" aria-describedby="basic-addon1" />
 			</div>
-			<button type="button" onClick= {(e) => handleSubmit(e)} className="btn btn-success">Add contact</button>
+
+			<div className="mb-3">
+				<label for="exampleFormControlInput1" className="form-label">Email</label>
+				<input type="text" value= {email} onChange= {(e) => setEmail(e.target.value)} className="form-control form-control-lg" aria-label="Username" aria-describedby="basic-addon1" />
+			</div>
+			
+			<button type="button" onClick= {(e) => handleSubmit(e)} className="btn btn-success btn btn-success w-100">SAVE</button>
 			<br/>
-			<Link to= "/">Get back to contacts</Link>
+			<Link to= "/">Or get back to contacts</Link>
 		</div>
 
 	);
